@@ -53,11 +53,11 @@ const FloatingButton = ({
           />
         </div>
       </div>
-      <div className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute -right-16 top-0.5 bg-white rounded-3xl p-1 border-1 border-black transition-all duration-[1400ms]`}>
-        Welcome!
+      <div className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute -right-48 top-0.5 bg-white rounded-3xl p-1 border-1 border-black w-[200px] transition-all duration-[1400ms]`}>
+        Marico el que lo lea
       </div>
-      <span className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute top-5 right-4 bg-white rounded-3xl w-2 h-2 border-1 border-black transition-all duration-[800ms]`} />
-      <span className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute top-7 right-6 bg-white rounded-3xl w-1 h-1 border-1 border-black transition-all duration-[200ms]`} />
+      <span className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute top-5 right-3 bg-white rounded-3xl w-2 h-2 border-1 border-black transition-all duration-[800ms]`} />
+      <span className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute top-7 right-5 bg-white rounded-3xl w-1 h-1 border-1 border-black transition-all duration-[200ms]`} />
     </button>
   );
 };
