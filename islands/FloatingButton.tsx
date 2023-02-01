@@ -27,9 +27,9 @@ const FloatingButton = ({
   }, [expanded, firstTime]);
 
   const handleExpand = () => {
-    setExpanded(!expanded)
+    setExpanded(!expanded);
     setTimeout(() => buttonRef.current?.blur(), 250);
-  }
+  };
 
   return (
     <button
@@ -47,10 +47,17 @@ const FloatingButton = ({
             alt="Sarkis Bazdikian Miniature"
             height={30}
             width={50}
-            className={`${expanded ? '' : '-mt-40'} transition-all duration-[400ms]`}
+            className={`${
+              expanded ? '' : '-mt-40'
+            } transition-all duration-[400ms]`}
           />
         </div>
       </div>
+      <div className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute -right-16 top-0.5 bg-white rounded-3xl p-1 border-1 border-black transition-all duration-[1400ms]`}>
+        Welcome!
+      </div>
+      <span className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute top-5 right-4 bg-white rounded-3xl w-2 h-2 border-1 border-black transition-all duration-[800ms]`} />
+      <span className={`${expanded ? 'opacity-100' : 'opacity-0'} absolute top-7 right-6 bg-white rounded-3xl w-1 h-1 border-1 border-black transition-all duration-[200ms]`} />
     </button>
   );
 };
