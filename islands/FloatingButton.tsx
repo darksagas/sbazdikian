@@ -1,5 +1,5 @@
 import { JSX } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 
 interface FloatingButtonProps {
   buttonProps?: JSX.HTMLAttributes<HTMLButtonElement>;
@@ -15,6 +15,7 @@ const FloatingButton = ({
 }: FloatingButtonProps) => {
   const [expanded, setExpanded] = useState(false);
   const [firstTime, setFirstTime] = useState(true);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!expanded && firstTime) {
@@ -25,13 +26,19 @@ const FloatingButton = ({
     }
   }, [expanded, firstTime]);
 
+  const handleExpand = () => {
+    setExpanded(!expanded)
+    setTimeout(() => buttonRef.current?.blur(), 250);
+  }
+
   return (
     <button
       {...buttonProps}
-      onClick={() => setExpanded(!expanded)}
+      onClick={handleExpand}
+      ref={buttonRef}
       className={`${
         expanded ? 'h-[58px]' : 'h-3'
-      } px-2 py-1 bg-blue-500 hover:bg-blue-300 w-1/5 left-8 absolute w-[70px] mt-[-8px] pt-3 rounded-b-lg focus:outline-none transition-all duration-500`}
+      } px-2 py-1 bg-blue-500 focus:bg-blue-300 w-1/5 left-8 absolute w-[70px] mt-[-8px] pt-3 rounded-b-lg focus:outline-none transition-all duration-500`}
     >
       <div className="grid grid-cols-1 items-center">
         <div className="col-span-1 -mb-1">
